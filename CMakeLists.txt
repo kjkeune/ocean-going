@@ -137,3 +137,19 @@ target_link_libraries(ocean-going
         PRIVATE SFML::Graphics
         PRIVATE SFML::Audio
         PRIVATE nlohmann_json::nlohmann_json)
+
+add_custom_command(
+        TARGET ocean-going POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../assets
+        COMMENT "Copying assets to output directory"
+)
+
+add_custom_command(
+        TARGET ocean-going POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/saves
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../saves
+        COMMENT "Copying assets to output directory"
+)
