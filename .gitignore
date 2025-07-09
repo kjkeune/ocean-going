@@ -1,0 +1,13 @@
+build
+cmake-build-debug
+cmake-build-release
+out
+.cache
+.idea
+.vs
+.vscode
+*.kra
+*.kra~
+*.png~
+*.aup3
+*.aup3-wal
