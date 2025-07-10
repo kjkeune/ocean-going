@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+#include "Config.hpp"
 #include "../../handling/LevelManager.hpp"
 
 ShipParts::ShipParts(sf::Vector2f pos, int amount, Island* island): Drop(island) {

@@ -2,7 +2,22 @@ cmake_minimum_required(VERSION 3.28)
 project(ocean-going LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_BUILD_TYPE Debug)
+
+# Detect if in Debug mode
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(DEBUG true)
+else()
+    set(DEBUG false)
+endif()
+
+# Configure config file
+configure_file(
+    ${CMAKE_SOURCE_DIR}/src/Config.hpp.in
+    ${CMAKE_BINARY_DIR}/gen/Config.hpp
+    @ONLY
+)
+
+include_directories(${CMAKE_BINARY_DIR}/gen)
 
 include(FetchContent)
 
@@ -142,7 +157,7 @@ add_custom_command(
         TARGET ocean-going POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/assets
-        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../assets
+        ${CMAKE_BINARY_DIR}/assets
         COMMENT "Copying assets to output directory"
 )
 
@@ -150,6 +165,6 @@ add_custom_command(
         TARGET ocean-going POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/saves
-        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../saves
+        ${CMAKE_BINARY_DIR}/saves
         COMMENT "Copying assets to output directory"
 )

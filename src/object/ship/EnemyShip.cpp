@@ -10,6 +10,7 @@
 #include "../../handling/LevelManager.hpp"
 #include "../../handling/ObjectManager.hpp"
 #include "../entity/ShipWreck.hpp"
+#include "Config.hpp"
 
 const float EnemyShip::HOME_RADIUS = 200.f;
 const float EnemyShip::FRONTAL_ATTACK_ANGLE = 100.f;

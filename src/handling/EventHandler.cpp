@@ -5,7 +5,7 @@
 #include "EventHandler.hpp"
 
 #include "LevelManager.hpp"
-#include "../Game.hpp"
+#include "Config.hpp"
 
 EventHandler* EventHandler::instance = nullptr;
 

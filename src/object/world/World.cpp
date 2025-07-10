@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+#include "Config.hpp"
 #include "../../Game.hpp"
 #include "../../util/RandomGenerator.hpp"
 

@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "../Game.hpp"
+#include "Config.hpp"
 #include "../constants/Paths.hpp"
 
 ResourceManager* ResourceManager::instance = nullptr;

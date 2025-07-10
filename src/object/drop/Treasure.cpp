@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "../../handling/LevelManager.hpp"
-#include "../../handling/ObjectManager.hpp"
+#include "Config.hpp"
 
 Treasure::Treasure(sf::Vector2f pos, int amount, Island* island): Drop(island) {
     sprite.setTexture(ResourceManager::getInstance().getTexture(textures::TREASURE), true);

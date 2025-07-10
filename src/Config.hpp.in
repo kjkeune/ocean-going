@@ -1,0 +1,14 @@
+#pragma once
+
+inline constexpr bool DEBUG =
+#if @DEBUG@
+    true;
+#else
+    false;
+#endif
+
+inline constexpr bool PEACEFUL = false;
+
+inline constexpr bool RANDOM_SEED = true;
+
+inline constexpr unsigned int SEED = 42;

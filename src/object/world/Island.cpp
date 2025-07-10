@@ -4,7 +4,7 @@
 
 #include "Island.hpp"
 
-#include "../../Game.hpp"
+#include "Config.hpp"
 #include "../../handling/LevelManager.hpp"
 #include "../../util/RandomGenerator.hpp"
 #include "../../util/Text.hpp"
@@ -128,7 +128,7 @@ void Island::dropLoot() {
 }
 
 void Island::spawnEnemies(bool initial) {
-    if (enemiesSpawns <= 0  || PEACEFULL) {
+    if (enemiesSpawns <= 0  || PEACEFUL) {
         return;
     }
     auto& rg = RandomGenerator::getInstance();

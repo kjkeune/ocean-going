@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "../../Game.hpp"
+#include "Config.hpp"
 
 HealingBarrel::HealingBarrel(sf::Vector2f pos, float heal, Island* island): Drop(island) {
     auto& rm = ResourceManager::getInstance();

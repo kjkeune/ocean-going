@@ -4,7 +4,7 @@
 
 #include "RandomGenerator.hpp"
 
-#include "../Game.hpp"
+#include "Config.hpp"
 
 RandomGenerator* RandomGenerator::instance = nullptr;
 

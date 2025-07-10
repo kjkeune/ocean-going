@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 
+#include "Config.hpp"
 #include "../../Game.hpp"
 #include "../../handling/ObjectManager.hpp"
 #include "../entity/CannonBall.hpp"

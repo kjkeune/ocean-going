@@ -5,9 +5,8 @@
 #include "Upgrade.hpp"
 
 #include <iostream>
-#include <stdexcept>
 
-#include "../Game.hpp"
+#include "Config.hpp"
 #include "../object/ship/Ship.hpp"
 
 const int Upgrade::MAX_LEVEL = 10;

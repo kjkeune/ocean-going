@@ -9,7 +9,7 @@
 #include "../../handling/ObjectManager.hpp"
 #include "../drop/Drop.hpp"
 #include "Effect.hpp"
-#include "../../Game.hpp"
+#include "Config.hpp"
 #include "../../util/RandomGenerator.hpp"
 
 const float CannonBall::DAMAGE_DEVIATION = 0.1f;

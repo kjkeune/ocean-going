@@ -13,11 +13,6 @@
 #include "handling/ObjectManager.hpp"
 #include "handling/SceneLoader.hpp"
 
-const inline bool DEBUG = true;
-const inline bool PEACEFULL = false;
-const inline bool RANDOM_SEED = true;
-const inline unsigned int SEED = 42;
-
 class Game {
 public:
     static Game& getInstance();
