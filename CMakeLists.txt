@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 project(ocean-going LANGUAGES CXX)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # include dll's for windows
 if (MINGW)
@@ -36,6 +36,12 @@ FetchContent_MakeAvailable(SFML)
 FetchContent_Declare(json
         URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
 FetchContent_MakeAvailable(json)
+
+# add icon on windows
+if(WIN32)
+    enable_language(RC)
+    set(APP_ICON_RESOURCE "${CMAKE_SOURCE_DIR}/assets/icon.rc")
+endif()
 
 add_executable(ocean-going src/Game.cpp
         src/Game.hpp
@@ -149,6 +155,7 @@ add_executable(ocean-going src/Game.cpp
         src/object/world/IslandDecoration.hpp
         src/object/ui/container/TutorialUI.cpp
         src/object/ui/container/TutorialUI.hpp
+        ${APP_ICON_RESOURCE}
 )
 
 target_compile_features(ocean-going PRIVATE cxx_std_17)
@@ -172,6 +179,12 @@ add_custom_command(
         ${CMAKE_BINARY_DIR}/saves
         COMMENT "Copying assets to output directory"
 )
+
+# create symbolic link
+#add_custom_command(TARGET ocean-going POST_BUILD
+#        COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ocean-going.exe ${CMAKE_BINARY_DIR}/ocean-going
+#        COMMENT "Creating symbolic link to ocean-going.exe"
+#)
 
 # include pthread dll for windows
 if (MINGW)

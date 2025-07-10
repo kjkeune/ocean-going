@@ -6,8 +6,8 @@
 #define PATHS_HPP
 #include <string>
 
-inline const std::string GAMESAVE_PATH = "../saves/";
-inline const std::string ASSETS_PATH = "../assets/";
+inline const std::string GAMESAVE_PATH = "saves/";
+inline const std::string ASSETS_PATH = "assets/";
 
 namespace textures {
     inline const std::string DEFAULT = ASSETS_PATH + "textures/default.png";
