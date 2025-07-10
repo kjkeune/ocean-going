@@ -143,7 +143,7 @@ void Island::spawnEnemies(bool initial) {
         rMax = boundingCircle->radius + World::ISLAND_MARGIN;
         rMin = rMax - 50;
     }
-    float dStart = rg.randomFloat(0.f, 2 * M_PIf);
+    float dStart = rg.randomFloat(0.f, 2 * M_PI);
     // determine enemies to spawn with LevelManager
     int spawns = rg.randomInt(1, ceilf(enemiesSpawns / 2.f));
     std::vector<EnemyShip*> enemies;
@@ -155,8 +155,8 @@ void Island::spawnEnemies(bool initial) {
     int numEnemies = enemies.size();
     // set enemy pos randomly around home island with distance to others
     for (int i = 0; i < numEnemies; i++) {
-        float d = dStart + i * 2 * M_PIf / static_cast<float>(numEnemies);
-        auto pos = rg.randomPosInRadius(rMin, rMax, boundingCircle->center, d - M_PIf / 8, d + M_PIf / 8);
+        float d = dStart + i * 2 * M_PI / static_cast<float>(numEnemies);
+        auto pos = rg.randomPosInRadius(rMin, rMax, boundingCircle->center, d - M_PI / 8, d + M_PI / 8);
         enemies[i]->getTrans().setPosition(pos);
         enemies[i]->setActive(true);
     }

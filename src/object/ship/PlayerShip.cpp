@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+#include "Config.hpp"
 #include "../../handling/LevelManager.hpp"
 #include "../../handling/SceneLoader.hpp"
 #include "../entity/ShipWreck.hpp"
@@ -15,7 +16,7 @@ PlayerShip::PlayerShip(ShipConfiguration& config): Ship(config) {
 }
 
 void PlayerShip::sink() {
-    std::cout << "PlayerShip destroyed" << std::endl;
+    if (DEBUG) std::cout << "PlayerShip destroyed" << std::endl;
     new ShipWreck(hull.getPosition(), hull.getRotation(), hullType);
     setActive(false);
     SceneLoader::getInstance().loadScene(Scene::DEATH_SCREEN);

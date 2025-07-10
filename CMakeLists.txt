@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.28)
 project(ocean-going LANGUAGES CXX)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# include dll's for windows
+if (MINGW)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++")
+endif()
 
 # Detect if in Debug mode
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -168,3 +172,12 @@ add_custom_command(
         ${CMAKE_BINARY_DIR}/saves
         COMMENT "Copying assets to output directory"
 )
+
+# include pthread dll for windows
+if (MINGW)
+    add_custom_command(TARGET ocean-going POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${CMAKE_SOURCE_DIR}/libwinpthread-1.dll
+            ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+    )
+endif()
